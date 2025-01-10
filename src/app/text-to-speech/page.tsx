@@ -1,11 +1,10 @@
-import TextToSpeechForm from '../components/TextToSpeechForm'
+import TextToSpeechForm from '../../components/TextToSpeechForm';
+import { ContentBox } from '../../components/ContentBox';
 
 export default function TextToSpeechPage() {
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Text to Speech</h1>
+    <ContentBox title='Text to Speech'>
       <TextToSpeechForm />
-    </div>
-  )
+    </ContentBox>
+  );
 }
-

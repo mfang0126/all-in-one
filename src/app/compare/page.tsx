@@ -1,11 +1,10 @@
-import ComparisonForm from '../components/ComparisonForm'
+import ComparisonForm from '../../components/ComparisonForm';
+import { ContentBox } from '../../components/ContentBox';
 
 export default function ComparePage() {
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Compare Speech-to-Text Services</h1>
+    <ContentBox title='Compare Speech-to-Text Services'>
       <ComparisonForm />
-    </div>
-  )
+    </ContentBox>
+  );
 }
-

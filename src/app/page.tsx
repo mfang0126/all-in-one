@@ -1,11 +1,11 @@
-import TranscriptionForm from './components/TranscriptionForm'
-
+import TranscriptionForm from '../components/TranscriptionForm';
+import { ContentBox } from '../components/ContentBox';
 export default function Home() {
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Multi-language Speech-to-Text (Transcription)</h1>
-      <TranscriptionForm />
+      <ContentBox title='Multi-language Speech-to-Text (Transcription)'>
+        <TranscriptionForm />
+      </ContentBox>
     </div>
-  )
+  );
 }
-

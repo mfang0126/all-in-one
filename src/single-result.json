@@ -1,0 +1,1380 @@
+{
+  "score": {
+    "calculatedScore": 70.73855140081233,
+    "normalizedScore": 70.7,
+    "confidence": "high"
+  },
+  "category": "read_chapter",
+  "timestamp": "2024-12-18T20:20:08.047Z",
+  "assessment": {
+    "sentence": {
+      "text": "In medicine, the application of information technology means the digitalization of medical records and the establishment of an inteligent network for sharing those records. Other benefits flow from these technological changes. In the past medicine has taken a paternalistic stance, with the all-knowing physician dispensing wisdom, but that is becoming increasingly untenable.",
+      "score": 100,
+      "quality": "excellent",
+      "start": 0,
+      "end": 376,
+      "words": [
+        {
+          "text": "in medicine, the application of information technology means the digitalization of medical records and the establishment of an inteligent network for sharing those records",
+          "score": 100,
+          "quality": "excellent",
+          "start": 0,
+          "end": 901,
+          "syllables": [
+            {
+              "text": "in",
+              "score": 100,
+              "quality": "excellent",
+              "start": 20,
+              "end": 38,
+              "phones": [
+                {
+                  "text": "ih n",
+                  "phoneme": "ih n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 20,
+                  "end": 38
+                }
+              ]
+            },
+            {
+              "text": "medicine",
+              "score": 100,
+              "quality": "excellent",
+              "start": 38,
+              "end": 88,
+              "phones": [
+                {
+                  "text": "m eh",
+                  "phoneme": "m eh",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 38,
+                  "end": 54
+                },
+                {
+                  "text": "d ih",
+                  "phoneme": "d ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 54,
+                  "end": 68
+                },
+                {
+                  "text": "s ih n",
+                  "phoneme": "s ih n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 68,
+                  "end": 88
+                }
+              ]
+            },
+            {
+              "text": "the",
+              "score": 100,
+              "quality": "excellent",
+              "start": 88,
+              "end": 104,
+              "phones": [
+                {
+                  "text": "dh ax",
+                  "phoneme": "dh ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 88,
+                  "end": 104
+                }
+              ]
+            },
+            {
+              "text": "application",
+              "score": 100,
+              "quality": "excellent",
+              "start": 104,
+              "end": 164,
+              "phones": [
+                {
+                  "text": "ax",
+                  "phoneme": "ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 104,
+                  "end": 116
+                },
+                {
+                  "text": "p l ih",
+                  "phoneme": "p l ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 116,
+                  "end": 130
+                },
+                {
+                  "text": "k ey",
+                  "phoneme": "k ey",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 130,
+                  "end": 146
+                },
+                {
+                  "text": "sh ax n",
+                  "phoneme": "sh ax n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 146,
+                  "end": 164
+                }
+              ]
+            },
+            {
+              "text": "of",
+              "score": 100,
+              "quality": "excellent",
+              "start": 164,
+              "end": 178,
+              "phones": [
+                {
+                  "text": "ax v",
+                  "phoneme": "ax v",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 164,
+                  "end": 178
+                }
+              ]
+            },
+            {
+              "text": "information",
+              "score": 100,
+              "quality": "excellent",
+              "start": 178,
+              "end": 232,
+              "phones": [
+                {
+                  "text": "ih n",
+                  "phoneme": "ih n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 178,
+                  "end": 188
+                },
+                {
+                  "text": "f ax",
+                  "phoneme": "f ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 188,
+                  "end": 199
+                },
+                {
+                  "text": "m ey",
+                  "phoneme": "m ey",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 199,
+                  "end": 216
+                },
+                {
+                  "text": "sh ax n",
+                  "phoneme": "sh ax n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 216,
+                  "end": 232
+                }
+              ]
+            },
+            {
+              "text": "technology",
+              "score": 100,
+              "quality": "excellent",
+              "start": 232,
+              "end": 292,
+              "phones": [
+                {
+                  "text": "t eh k",
+                  "phoneme": "t eh k",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 232,
+                  "end": 252
+                },
+                {
+                  "text": "n oo",
+                  "phoneme": "n oo",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 252,
+                  "end": 266
+                },
+                {
+                  "text": "l ax",
+                  "phoneme": "l ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 266,
+                  "end": 277
+                },
+                {
+                  "text": "jh ih",
+                  "phoneme": "jh ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 277,
+                  "end": 292
+                }
+              ]
+            },
+            {
+              "text": "means",
+              "score": 100,
+              "quality": "excellent",
+              "start": 292,
+              "end": 318,
+              "phones": [
+                {
+                  "text": "m iy n z",
+                  "phoneme": "m iy n z",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 292,
+                  "end": 318
+                }
+              ]
+            },
+            {
+              "text": "the",
+              "score": 100,
+              "quality": "excellent",
+              "start": 318,
+              "end": 334,
+              "phones": [
+                {
+                  "text": "dh ax",
+                  "phoneme": "dh ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 318,
+                  "end": 334
+                }
+              ]
+            },
+            {
+              "text": "digitalization",
+              "score": 100,
+              "quality": "excellent",
+              "start": 334,
+              "end": 423,
+              "phones": [
+                {
+                  "text": "d ih",
+                  "phoneme": "d ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 334,
+                  "end": 349
+                },
+                {
+                  "text": "jh ih",
+                  "phoneme": "jh ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 349,
+                  "end": 361
+                },
+                {
+                  "text": "t ax",
+                  "phoneme": "t ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 361,
+                  "end": 372
+                },
+                {
+                  "text": "l ay",
+                  "phoneme": "l ay",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 372,
+                  "end": 384
+                },
+                {
+                  "text": "z ey",
+                  "phoneme": "z ey",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 384,
+                  "end": 404
+                },
+                {
+                  "text": "sh ax n",
+                  "phoneme": "sh ax n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 404,
+                  "end": 423
+                }
+              ]
+            },
+            {
+              "text": "of",
+              "score": 100,
+              "quality": "excellent",
+              "start": 423,
+              "end": 434,
+              "phones": [
+                {
+                  "text": "ax v",
+                  "phoneme": "ax v",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 423,
+                  "end": 434
+                }
+              ]
+            },
+            {
+              "text": "medical",
+              "score": 100,
+              "quality": "excellent",
+              "start": 434,
+              "end": 473,
+              "phones": [
+                {
+                  "text": "m eh",
+                  "phoneme": "m eh",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 434,
+                  "end": 452
+                },
+                {
+                  "text": "d ih",
+                  "phoneme": "d ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 452,
+                  "end": 460
+                },
+                {
+                  "text": "k ax l",
+                  "phoneme": "k ax l",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 460,
+                  "end": 473
+                }
+              ]
+            },
+            {
+              "text": "records",
+              "score": 100,
+              "quality": "excellent",
+              "start": 473,
+              "end": 530,
+              "phones": [
+                {
+                  "text": "r ih",
+                  "phoneme": "r ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 473,
+                  "end": 488
+                },
+                {
+                  "text": "k ao r dz",
+                  "phoneme": "k ao r dz",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 488,
+                  "end": 530
+                }
+              ]
+            },
+            {
+              "text": "and",
+              "score": 100,
+              "quality": "excellent",
+              "start": 530,
+              "end": 546,
+              "phones": [
+                {
+                  "text": "ae n d",
+                  "phoneme": "ae n d",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 530,
+                  "end": 546
+                }
+              ]
+            },
+            {
+              "text": "the",
+              "score": 100,
+              "quality": "excellent",
+              "start": 546,
+              "end": 558,
+              "phones": [
+                {
+                  "text": "dh ax",
+                  "phoneme": "dh ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 546,
+                  "end": 558
+                }
+              ]
+            },
+            {
+              "text": "establishment",
+              "score": 100,
+              "quality": "excellent",
+              "start": 558,
+              "end": 634,
+              "phones": [
+                {
+                  "text": "ih",
+                  "phoneme": "ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 558,
+                  "end": 568
+                },
+                {
+                  "text": "s t ae",
+                  "phoneme": "s t ae",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 568,
+                  "end": 588
+                },
+                {
+                  "text": "b l ih sh",
+                  "phoneme": "b l ih sh",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 588,
+                  "end": 606
+                },
+                {
+                  "text": "m ax n t",
+                  "phoneme": "m ax n t",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 606,
+                  "end": 634
+                }
+              ]
+            },
+            {
+              "text": "of",
+              "score": 100,
+              "quality": "excellent",
+              "start": 634,
+              "end": 646,
+              "phones": [
+                {
+                  "text": "ax v",
+                  "phoneme": "ax v",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 634,
+                  "end": 646
+                }
+              ]
+            },
+            {
+              "text": "an",
+              "score": 100,
+              "quality": "excellent",
+              "start": 646,
+              "end": 658,
+              "phones": [
+                {
+                  "text": "ae n",
+                  "phoneme": "ae n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 646,
+                  "end": 658
+                }
+              ]
+            },
+            {
+              "text": "inteligent",
+              "score": 100,
+              "quality": "excellent",
+              "start": 658,
+              "end": 711,
+              "phones": [
+                {
+                  "text": "ih n t eh l ih jh ax n t",
+                  "phoneme": "ih n t eh l ih jh ax n t",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 658,
+                  "end": 711
+                }
+              ]
+            },
+            {
+              "text": "network",
+              "score": 100,
+              "quality": "excellent",
+              "start": 711,
+              "end": 755,
+              "phones": [
+                {
+                  "text": "n eh",
+                  "phoneme": "n eh",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 711,
+                  "end": 723
+                },
+                {
+                  "text": "t w er k",
+                  "phoneme": "t w er k",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 723,
+                  "end": 755
+                }
+              ]
+            },
+            {
+              "text": "for",
+              "score": 100,
+              "quality": "excellent",
+              "start": 755,
+              "end": 774,
+              "phones": [
+                {
+                  "text": "f ax",
+                  "phoneme": "f ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 755,
+                  "end": 774
+                }
+              ]
+            },
+            {
+              "text": "sharing",
+              "score": 100,
+              "quality": "excellent",
+              "start": 774,
+              "end": 811,
+              "phones": [
+                {
+                  "text": "sh eh",
+                  "phoneme": "sh eh",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 774,
+                  "end": 796
+                },
+                {
+                  "text": "r ih ng",
+                  "phoneme": "r ih ng",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 796,
+                  "end": 811
+                }
+              ]
+            },
+            {
+              "text": "those",
+              "score": 100,
+              "quality": "excellent",
+              "start": 811,
+              "end": 834,
+              "phones": [
+                {
+                  "text": "dh ow z",
+                  "phoneme": "dh ow z",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 811,
+                  "end": 834
+                }
+              ]
+            },
+            {
+              "text": "records",
+              "score": 100,
+              "quality": "excellent",
+              "start": 834,
+              "end": 901,
+              "phones": [
+                {
+                  "text": "r ih",
+                  "phoneme": "r ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 834,
+                  "end": 856
+                },
+                {
+                  "text": "k ao dz",
+                  "phoneme": "k ao dz",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 856,
+                  "end": 901
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "other benefits flow from these technological changes",
+          "score": 100,
+          "quality": "excellent",
+          "start": 901,
+          "end": 1204,
+          "syllables": [
+            {
+              "text": "other",
+              "score": 100,
+              "quality": "excellent",
+              "start": 920,
+              "end": 954,
+              "phones": [
+                {
+                  "text": "ah",
+                  "phoneme": "ah",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 920,
+                  "end": 946
+                },
+                {
+                  "text": "dh ax",
+                  "phoneme": "dh ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 946,
+                  "end": 954
+                }
+              ]
+            },
+            {
+              "text": "benefits",
+              "score": 100,
+              "quality": "excellent",
+              "start": 954,
+              "end": 994,
+              "phones": [
+                {
+                  "text": "b eh",
+                  "phoneme": "b eh",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 954,
+                  "end": 966
+                },
+                {
+                  "text": "n ih",
+                  "phoneme": "n ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 966,
+                  "end": 976
+                },
+                {
+                  "text": "f ih ts",
+                  "phoneme": "f ih ts",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 976,
+                  "end": 994
+                }
+              ]
+            },
+            {
+              "text": "flow",
+              "score": 100,
+              "quality": "excellent",
+              "start": 994,
+              "end": 1024,
+              "phones": [
+                {
+                  "text": "f l ow",
+                  "phoneme": "f l ow",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 994,
+                  "end": 1024
+                }
+              ]
+            },
+            {
+              "text": "from",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1024,
+              "end": 1054,
+              "phones": [
+                {
+                  "text": "f r oo m",
+                  "phoneme": "f r oo m",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1024,
+                  "end": 1054
+                }
+              ]
+            },
+            {
+              "text": "these",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1054,
+              "end": 1072,
+              "phones": [
+                {
+                  "text": "dh iy z",
+                  "phoneme": "dh iy z",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1054,
+                  "end": 1072
+                }
+              ]
+            },
+            {
+              "text": "technological",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1072,
+              "end": 1144,
+              "phones": [
+                {
+                  "text": "t eh k",
+                  "phoneme": "t eh k",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1072,
+                  "end": 1099
+                },
+                {
+                  "text": "n ax",
+                  "phoneme": "n ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1099,
+                  "end": 1111
+                },
+                {
+                  "text": "l oo",
+                  "phoneme": "l oo",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1111,
+                  "end": 1126
+                },
+                {
+                  "text": "jh ih",
+                  "phoneme": "jh ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1126,
+                  "end": 1134
+                },
+                {
+                  "text": "k ax l",
+                  "phoneme": "k ax l",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1134,
+                  "end": 1144
+                }
+              ]
+            },
+            {
+              "text": "changes",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1144,
+              "end": 1204,
+              "phones": [
+                {
+                  "text": "ch ey n",
+                  "phoneme": "ch ey n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1144,
+                  "end": 1168
+                },
+                {
+                  "text": "jh ih z",
+                  "phoneme": "jh ih z",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1168,
+                  "end": 1204
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "in the past medicine has taken a paternalistic stance, with the all-knowing physician dispensing wisdom, but that is becoming increasingly untenable",
+          "score": 100,
+          "quality": "excellent",
+          "start": 1204,
+          "end": 1990,
+          "syllables": [
+            {
+              "text": "in",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1210,
+              "end": 1244,
+              "phones": [
+                {
+                  "text": "ih n",
+                  "phoneme": "ih n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1210,
+                  "end": 1244
+                }
+              ]
+            },
+            {
+              "text": "the",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1244,
+              "end": 1252,
+              "phones": [
+                {
+                  "text": "dh ax",
+                  "phoneme": "dh ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1244,
+                  "end": 1252
+                }
+              ]
+            },
+            {
+              "text": "past",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1252,
+              "end": 1282,
+              "phones": [
+                {
+                  "text": "p aa s t",
+                  "phoneme": "p aa s t",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1252,
+                  "end": 1282
+                }
+              ]
+            },
+            {
+              "text": "medicine",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1282,
+              "end": 1320,
+              "phones": [
+                {
+                  "text": "m eh",
+                  "phoneme": "m eh",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1282,
+                  "end": 1296
+                },
+                {
+                  "text": "d ih",
+                  "phoneme": "d ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1296,
+                  "end": 1304
+                },
+                {
+                  "text": "s ih n",
+                  "phoneme": "s ih n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1304,
+                  "end": 1320
+                }
+              ]
+            },
+            {
+              "text": "has",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1320,
+              "end": 1338,
+              "phones": [
+                {
+                  "text": "hh ae z",
+                  "phoneme": "hh ae z",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1320,
+                  "end": 1338
+                }
+              ]
+            },
+            {
+              "text": "taken",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1338,
+              "end": 1372,
+              "phones": [
+                {
+                  "text": "t ey",
+                  "phoneme": "t ey",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1338,
+                  "end": 1356
+                },
+                {
+                  "text": "k ax n",
+                  "phoneme": "k ax n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1356,
+                  "end": 1372
+                }
+              ]
+            },
+            {
+              "text": "a",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1372,
+              "end": 1384,
+              "phones": [
+                {
+                  "text": "ax",
+                  "phoneme": "ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1372,
+                  "end": 1384
+                }
+              ]
+            },
+            {
+              "text": "paternalistic",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1384,
+              "end": 1470,
+              "phones": [
+                {
+                  "text": "p ax",
+                  "phoneme": "p ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1384,
+                  "end": 1396
+                },
+                {
+                  "text": "t er",
+                  "phoneme": "t er",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1396,
+                  "end": 1411
+                },
+                {
+                  "text": "n ax",
+                  "phoneme": "n ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1411,
+                  "end": 1424
+                },
+                {
+                  "text": "l ih s",
+                  "phoneme": "l ih s",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1424,
+                  "end": 1446
+                },
+                {
+                  "text": "t ih k",
+                  "phoneme": "t ih k",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1446,
+                  "end": 1470
+                }
+              ]
+            },
+            {
+              "text": "stance",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1470,
+              "end": 1518,
+              "phones": [
+                {
+                  "text": "s d ae n s",
+                  "phoneme": "s d ae n s",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1470,
+                  "end": 1518
+                }
+              ]
+            },
+            {
+              "text": "sil",
+              "score": null,
+              "quality": "poor",
+              "start": 1518,
+              "end": 1530,
+              "phones": []
+            },
+            {
+              "text": "with",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1530,
+              "end": 1562,
+              "phones": [
+                {
+                  "text": "w ih dh",
+                  "phoneme": "w ih dh",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1530,
+                  "end": 1562
+                }
+              ]
+            },
+            {
+              "text": "the",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1562,
+              "end": 1574,
+              "phones": [
+                {
+                  "text": "dh ax",
+                  "phoneme": "dh ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1562,
+                  "end": 1574
+                }
+              ]
+            },
+            {
+              "text": "all-knowing",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1574,
+              "end": 1623,
+              "phones": [
+                {
+                  "text": "n ow",
+                  "phoneme": "n ow",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1574,
+                  "end": 1615
+                },
+                {
+                  "text": "ih ng",
+                  "phoneme": "ih ng",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1615,
+                  "end": 1623
+                }
+              ]
+            },
+            {
+              "text": "physician",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1623,
+              "end": 1672,
+              "phones": [
+                {
+                  "text": "f ih",
+                  "phoneme": "f ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1623,
+                  "end": 1637
+                },
+                {
+                  "text": "z ih",
+                  "phoneme": "z ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1637,
+                  "end": 1654
+                },
+                {
+                  "text": "sh ax n",
+                  "phoneme": "sh ax n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1654,
+                  "end": 1672
+                }
+              ]
+            },
+            {
+              "text": "dispensing",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1672,
+              "end": 1718,
+              "phones": [
+                {
+                  "text": "d ih s",
+                  "phoneme": "d ih s",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1672,
+                  "end": 1685
+                },
+                {
+                  "text": "b eh n",
+                  "phoneme": "b eh n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1685,
+                  "end": 1706
+                },
+                {
+                  "text": "s ih ng",
+                  "phoneme": "s ih ng",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1706,
+                  "end": 1718
+                }
+              ]
+            },
+            {
+              "text": "wisdom",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1718,
+              "end": 1769,
+              "phones": [
+                {
+                  "text": "w ih z",
+                  "phoneme": "w ih z",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1718,
+                  "end": 1744
+                },
+                {
+                  "text": "d ax m",
+                  "phoneme": "d ax m",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1744,
+                  "end": 1769
+                }
+              ]
+            },
+            {
+              "text": "sil",
+              "score": null,
+              "quality": "poor",
+              "start": 1769,
+              "end": 1772,
+              "phones": []
+            },
+            {
+              "text": "but",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1772,
+              "end": 1786,
+              "phones": [
+                {
+                  "text": "b ah t",
+                  "phoneme": "b ah t",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1772,
+                  "end": 1786
+                }
+              ]
+            },
+            {
+              "text": "that",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1786,
+              "end": 1808,
+              "phones": [
+                {
+                  "text": "dh ae t",
+                  "phoneme": "dh ae t",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1786,
+                  "end": 1808
+                }
+              ]
+            },
+            {
+              "text": "is",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1808,
+              "end": 1816,
+              "phones": [
+                {
+                  "text": "ih z",
+                  "phoneme": "ih z",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1808,
+                  "end": 1816
+                }
+              ]
+            },
+            {
+              "text": "becoming",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1816,
+              "end": 1858,
+              "phones": [
+                {
+                  "text": "b ih",
+                  "phoneme": "b ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1816,
+                  "end": 1832
+                },
+                {
+                  "text": "k ah",
+                  "phoneme": "k ah",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1832,
+                  "end": 1844
+                },
+                {
+                  "text": "m ih ng",
+                  "phoneme": "m ih ng",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1844,
+                  "end": 1858
+                }
+              ]
+            },
+            {
+              "text": "increasingly",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1858,
+              "end": 1922,
+              "phones": [
+                {
+                  "text": "ih n",
+                  "phoneme": "ih n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1858,
+                  "end": 1867
+                },
+                {
+                  "text": "k r iy",
+                  "phoneme": "k r iy",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1867,
+                  "end": 1896
+                },
+                {
+                  "text": "s ih ng",
+                  "phoneme": "s ih ng",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1896,
+                  "end": 1909
+                },
+                {
+                  "text": "l ih",
+                  "phoneme": "l ih",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1909,
+                  "end": 1922
+                }
+              ]
+            },
+            {
+              "text": "untenable",
+              "score": 100,
+              "quality": "excellent",
+              "start": 1922,
+              "end": 1989,
+              "phones": [
+                {
+                  "text": "ah n",
+                  "phoneme": "ah n",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1922,
+                  "end": 1936
+                },
+                {
+                  "text": "t eh",
+                  "phoneme": "t eh",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1936,
+                  "end": 1946
+                },
+                {
+                  "text": "n ax",
+                  "phoneme": "n ax",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1946,
+                  "end": 1959
+                },
+                {
+                  "text": "b ax l",
+                  "phoneme": "b ax l",
+                  "score": 100,
+                  "quality": "excellent",
+                  "start": 1959,
+                  "end": 1989
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": 1735617303992
+  }
+}
