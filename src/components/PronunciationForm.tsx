@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { InboxOutlined } from '@ant-design/icons';
 import { Form, Upload, Button, Alert, Typography, Space, Divider, Input } from 'antd';
 import type { UploadProps } from 'antd';
@@ -10,7 +10,7 @@ const { Title } = Typography;
 const { TextArea } = Input;
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+// const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 interface PronunciationResult {
   text: string;

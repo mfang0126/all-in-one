@@ -52,6 +52,10 @@ async function getAssemblyAITranscription(file: File, language: SupportedLanguag
   console.log('AssemblyAI: Starting transcription...');
 
   try {
+    if (!process.env.ASSEMBLYAI_API_KEY) {
+      throw new Error('AssemblyAI API key is not configured');
+    }
+
     const client = new AssemblyAI({
       apiKey: process.env.ASSEMBLYAI_API_KEY
     });
