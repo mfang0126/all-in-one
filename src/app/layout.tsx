@@ -1,13 +1,13 @@
 'use client';
 
-import './globals.css';
+import { AudioOutlined, CompressOutlined, FileTextOutlined } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import 'antd/dist/reset.css';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
-import { Layout, Menu } from 'antd';
-import { FileTextOutlined, CompressOutlined, AudioOutlined } from '@ant-design/icons';
 import { usePathname } from 'next/navigation';
+import './globals.css';
 import { AntdProvider } from './providers';
-import 'antd/dist/reset.css';
 
 const { Content, Footer, Sider } = Layout;
 
