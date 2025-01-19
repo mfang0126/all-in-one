@@ -9,9 +9,6 @@ const { Dragger } = Upload;
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-// const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-
 interface PronunciationResult {
   text: string;
 }
@@ -53,8 +50,11 @@ export default function PronunciationForm() {
     formData.append('text', text);
 
     try {
-      const response = await fetch(`${apiUrl}/api/read-aloud/chapter`, {
+      const response = await fetch('/api/read-aloud/chapter', {
         method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.PTE_API_KEY}`
+        },
         body: formData
       });
 
