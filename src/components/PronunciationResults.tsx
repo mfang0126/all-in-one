@@ -92,33 +92,62 @@ export default function PronunciationResults() {
                 onClick={() => handleResultClick(result.uid)}
               >
                 <div className='flex justify-between items-start'>
-                  <div>
-                    <Text strong>{result.text}</Text>
-                  </div>
-                  <div className='text-right min-w-[200px] space-y-1'>
-                    <div>
-                      <Text type='secondary'>{new Date(result.timestamp).toLocaleString()}</Text>
+                  {result?.score !== undefined ? (
+                    <>
+                      <div>
+                        <Text strong>{result.text}</Text>
+                      </div>
+                      <div className='text-right min-w-[200px] space-y-1'>
+                        <div>
+                          <Text type='secondary'>{new Date(result.timestamp).toLocaleString()}</Text>
+                        </div>
+                        <div>
+                          <Text
+                            type='secondary'
+                            className='truncate max-w-[180px] inline-block cursor-pointer hover:bg-gray-100 px-1 rounded'
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              copyToClipboard(result.uid);
+                            }}
+                            title={result.uid}
+                          >
+                            ID: {result.uid}
+                          </Text>
+                        </div>
+                        <div>
+                          <Text type='secondary'>Score: {result.score}</Text>
+                        </div>
+                        <div>
+                          <Text type='secondary'>Category: {result.category}</Text>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className='w-full'>
+                      <div className='flex justify-between items-center'>
+                        <Text
+                          type='warning'
+                          className='text-lg'
+                        >
+                          Processing Assessment...
+                        </Text>
+                        <Text
+                          type='secondary'
+                          className='truncate max-w-[180px] inline-block cursor-pointer hover:bg-gray-100 px-1 rounded'
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            copyToClipboard(result.uid);
+                          }}
+                          title={result.uid}
+                        >
+                          ID: {result.uid}
+                        </Text>
+                      </div>
+                      <div className='mt-2'>
+                        <Text type='warning'>Please reload the page to check for updates.</Text>
+                      </div>
                     </div>
-                    <div>
-                      <Text
-                        type='secondary'
-                        className='truncate max-w-[180px] inline-block cursor-pointer hover:bg-gray-100 px-1 rounded'
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          copyToClipboard(result.uid);
-                        }}
-                        title={result.uid}
-                      >
-                        ID: {result.uid}
-                      </Text>
-                    </div>
-                    <div>
-                      <Text type='secondary'>Score: {result?.score !== undefined ? result?.score : 'Pending'}</Text>
-                    </div>
-                    <div>
-                      <Text type='secondary'>Category: {result.category}</Text>
-                    </div>
-                  </div>
+                  )}
                 </div>
               </li>
             ))}
