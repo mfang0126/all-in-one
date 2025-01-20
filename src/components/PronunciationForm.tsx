@@ -2,26 +2,22 @@
 
 import { useState } from 'react';
 import { InboxOutlined } from '@ant-design/icons';
-import { Form, Upload, Button, Alert, Typography, Space, Divider, Input } from 'antd';
+import { Form, Upload, Button, Alert, Typography, Space, Divider, Input, message } from 'antd';
 import type { UploadProps } from 'antd';
 
 const { Dragger } = Upload;
 const { Title } = Typography;
 const { TextArea } = Input;
 
-interface PronunciationResult {
-  text: string;
-}
+const DEFAULT_TEXT =
+  "A community's urban forest is an extension of its pride and community spirit. Trees enhance community economic stability by attracting businesses and tourists as people tend to linger and shop longer along tree-lined streets. Apartments and offices in wooded areas rent more quickly and businesses leasing office spaces in developments with trees reported higher productivity and fewer absences.";
 
 export default function PronunciationForm() {
   const [file, setFile] = useState<File | null>(null);
-  const [result, setResult] = useState<PronunciationResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
-  const [text, setText] = useState<string>(
-    "A community's urban forest is an extension of its pride and community spirit. Trees enhance community economic stability by attracting businesses and tourists as people tend to linger and shop longer along tree-lined streets. Apartments and offices in wooded areas rent more quickly and businesses leasing office spaces in developments with trees reported higher productivity and fewer absences."
-  );
+  const [text, setText] = useState<string>(DEFAULT_TEXT);
 
   const uploadProps: UploadProps = {
     name: 'file',
@@ -59,14 +55,26 @@ export default function PronunciationForm() {
       });
 
       if (!response.ok) {
-        throw new Error('Upload failed');
+        const errorData = await response.json().catch(() => ({ message: 'Something went wrong' }));
+        throw new Error(errorData.message || 'Failed to assess pronunciation. Please try again.');
       }
 
-      const data = await response.json();
-      setResult({ text: data.text }); // Adjust based on your API response structure
+      // Reset states after successful upload
+      setFile(null);
+      setAudioUrl(null);
+      setText(DEFAULT_TEXT);
+      setIsLoading(false);
+
+      message.success('Pronunciation assessment completed successfully');
     } catch (error) {
       console.error('Error:', error);
-      setError(error instanceof Error ? error.message : 'An error occurred during pronunciation check');
+      const userFriendlyMessage =
+        error instanceof Error && error.message !== 'Something went wrong'
+          ? error.message
+          : 'Failed to assess pronunciation. Please try again later.';
+
+      setError(userFriendlyMessage);
+      message.error(userFriendlyMessage);
     } finally {
       setIsLoading(false);
     }
@@ -79,7 +87,7 @@ export default function PronunciationForm() {
     >
       <Form
         initialValues={{
-          text: "A community's urban forest is an extension of its pride and community spirit. Trees enhance community economic stability by attracting businesses and tourists as people tend to linger and shop longer along tree-lined streets. Apartments and offices in wooded areas rent more quickly and businesses leasing office spaces in developments with trees reported higher productivity and fewer absences."
+          text: DEFAULT_TEXT
         }}
         layout='vertical'
         onFinish={handleSubmit}
@@ -137,16 +145,6 @@ export default function PronunciationForm() {
           >
             Your browser does not support the audio element.
           </audio>
-        </>
-      )}
-
-      {result && (
-        <>
-          <Divider />
-          <Title level={4}>Pronunciation Result</Title>
-          <div className='border rounded p-4'>
-            <p className='whitespace-pre-wrap'>{result.text}</p>
-          </div>
         </>
       )}
     </Space>

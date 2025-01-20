@@ -7,7 +7,15 @@ import { processScoreResult } from '../utils/scoreProcessing';
 import ScoredText from './ScoredText';
 import { Typography } from 'antd';
 
-const { Title, Text, Paragraph } = Typography;
+const { Title, Text } = Typography;
+
+const copyToClipboard = async (text: string) => {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+  }
+};
 
 export default function PronunciationResults() {
   const [results, setResults] = useState<Result[]>([]);
@@ -86,22 +94,30 @@ export default function PronunciationResults() {
                 <div className='flex justify-between items-start'>
                   <div>
                     <Text strong>{result.text}</Text>
-                    <Paragraph
-                      type='secondary'
-                      className='mt-1 mb-0'
-                    >
-                      Score: {result?.score !== undefined ? result?.score : 'Pending'}
-                    </Paragraph>
-                    <Text type='secondary'>Category: {result.category}</Text>
                   </div>
-                  <div className='text-right'>
-                    <Text type='secondary'>{new Date(result.timestamp).toLocaleString()}</Text>
-                    <Paragraph
-                      type='secondary'
-                      className='mt-1 mb-0'
-                    >
-                      ID: {result.uid}
-                    </Paragraph>
+                  <div className='text-right min-w-[200px] space-y-1'>
+                    <div>
+                      <Text type='secondary'>{new Date(result.timestamp).toLocaleString()}</Text>
+                    </div>
+                    <div>
+                      <Text
+                        type='secondary'
+                        className='truncate max-w-[180px] inline-block cursor-pointer hover:bg-gray-100 px-1 rounded'
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          copyToClipboard(result.uid);
+                        }}
+                        title={result.uid}
+                      >
+                        ID: {result.uid}
+                      </Text>
+                    </div>
+                    <div>
+                      <Text type='secondary'>Score: {result?.score !== undefined ? result?.score : 'Pending'}</Text>
+                    </div>
+                    <div>
+                      <Text type='secondary'>Category: {result.category}</Text>
+                    </div>
                   </div>
                 </div>
               </li>
@@ -136,7 +152,14 @@ const DetailedScoreAnalysis: React.FC<{ result: TypingResult }> = ({ result }) =
         <div className='flex justify-between items-start'>
           <div>
             <Title level={3}>Recording Details</Title>
-            <Text type='secondary'>ID: </Text>
+            <Text
+              type='secondary'
+              className='truncate max-w-[280px] inline-block cursor-pointer hover:bg-gray-100 px-1 rounded'
+              onClick={() => copyToClipboard(result.uid)}
+              title={result.uid}
+            >
+              ID: {result.uid}
+            </Text>
           </div>
           <div className='text-right'>
             <Text type='secondary'>{new Date(result.timestamp).toLocaleString()}</Text>

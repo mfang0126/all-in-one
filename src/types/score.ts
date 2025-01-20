@@ -1,6 +1,7 @@
 export type ScoreQuality = 'excellent' | 'good' | 'poor';
 
 export interface TypingResult {
+  uid: string;
   score: {
     calculatedScore: number;
     normalizedScore: number;
