@@ -10,8 +10,19 @@ const { Dragger } = Upload;
 const { Title } = Typography;
 
 interface TranscriptionResult {
-  assemblyai: string;
-  google: string;
+  assemblyai: {
+    text: string;
+    duration: number;
+  };
+  google: {
+    text: string;
+    duration: number;
+  };
+  timing: {
+    total: number;
+    assemblyai: number;
+    google: number;
+  };
 }
 
 export default function ComparisonForm() {
@@ -144,14 +155,19 @@ export default function ComparisonForm() {
       {results && (
         <>
           <Divider />
+          <div className='text-center mb-4'>
+            <p>Total Time: {results.timing.total}ms</p>
+          </div>
           <div className='grid md:grid-cols-2 gap-4'>
             <div className='border rounded p-4'>
               <Title level={4}>AssemblyAI Transcription</Title>
-              <p className='whitespace-pre-wrap'>{results.assemblyai.slice(0, 500)}...</p>
+              <p className='text-sm text-gray-500 mb-2'>Time taken: {results.timing.assemblyai}ms</p>
+              <p className='whitespace-pre-wrap'>{results.assemblyai.text.slice(0, 500)}...</p>
             </div>
             <div className='border rounded p-4'>
               <Title level={4}>Google Speech-to-Text</Title>
-              <p className='whitespace-pre-wrap'>{results.google.slice(0, 500)}...</p>
+              <p className='text-sm text-gray-500 mb-2'>Time taken: {results.timing.google}ms</p>
+              <p className='whitespace-pre-wrap'>{results.google.text.slice(0, 500)}...</p>
             </div>
           </div>
         </>
