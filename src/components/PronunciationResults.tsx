@@ -55,7 +55,7 @@ export default function PronunciationResults() {
       });
       const result = (await response.json()) as TypingResult;
       setCurrentResult(result);
-      console.log(result.score.normalizedScore);
+      console.log(result.scores);
     } catch (error) {
       console.error('Failed to fetch result details:', error);
     } finally {
@@ -92,33 +92,93 @@ export default function PronunciationResults() {
                 onClick={() => handleResultClick(result.uid)}
               >
                 <div className='flex justify-between items-start'>
-                  {result?.score !== undefined ? (
+                  {result?.scores !== undefined ? (
                     <>
-                      <div>
-                        <Text strong>{result.text}</Text>
+                      <div className='flex-1'>
+                        <Text
+                          strong
+                          className='text-lg'
+                        >
+                          {result.text}
+                        </Text>
                       </div>
-                      <div className='text-right min-w-[200px] space-y-1'>
-                        <div>
-                          <Text type='secondary'>{new Date(result.timestamp).toLocaleString()}</Text>
-                        </div>
+                      <div className='ml-8 text-right space-y-4'>
                         <div>
                           <Text
                             type='secondary'
-                            className='truncate max-w-[180px] inline-block cursor-pointer hover:bg-gray-100 px-1 rounded'
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              copyToClipboard(result.uid);
-                            }}
-                            title={result.uid}
+                            className='text-sm'
                           >
-                            ID: {result.uid}
+                            {new Date(result.timestamp).toLocaleString()}
                           </Text>
+                          <div className='mt-1'>
+                            <Text
+                              type='secondary'
+                              className='text-xs truncate max-w-[180px] inline-block cursor-pointer hover:bg-gray-100 px-1 rounded'
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                copyToClipboard(result.uid);
+                              }}
+                              title={result.uid}
+                            >
+                              ID: {result.uid}
+                            </Text>
+                          </div>
+                          <div>
+                            <Text
+                              type='secondary'
+                              className='text-sm'
+                            >
+                              Category: {result.category}
+                            </Text>
+                          </div>
                         </div>
-                        <div>
-                          <Text type='secondary'>Score: {result.score}</Text>
-                        </div>
-                        <div>
-                          <Text type='secondary'>Category: {result.category}</Text>
+
+                        <div className='grid grid-cols-2 gap-4'>
+                          <div className='border rounded p-3 bg-gray-50'>
+                            <Text
+                              strong
+                              className='block mb-2'
+                            >
+                              Standard Score
+                            </Text>
+                            <div className='space-y-1 text-sm'>
+                              <div className='flex justify-between'>
+                                <Text type='secondary'>Score:</Text>
+                                <Text>{result.scores?.standard.calculatedScore.toFixed(2)}</Text>
+                              </div>
+                              <div className='flex justify-between'>
+                                <Text type='secondary'>Normalized:</Text>
+                                <Text>{result.scores?.standard.normalizedScore.toFixed(2)}</Text>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className='border rounded p-3 bg-gray-50'>
+                            <Text
+                              strong
+                              className='block mb-2'
+                            >
+                              Detailed Score
+                            </Text>
+                            <div className='space-y-1 text-sm'>
+                              <div className='flex justify-between'>
+                                <Text type='secondary'>Contents:</Text>
+                                <Text>{result.scores?.detailed.contentsScore.toFixed(2)}</Text>
+                              </div>
+                              <div className='flex justify-between'>
+                                <Text type='secondary'>Fluency:</Text>
+                                <Text>{result.scores?.detailed.fluencyScore.toFixed(2)}</Text>
+                              </div>
+                              <div className='flex justify-between'>
+                                <Text type='secondary'>Pronunciation:</Text>
+                                <Text>{result.scores?.detailed.pronunciationScore.toFixed(2)}</Text>
+                              </div>
+                              <div className='flex justify-between'>
+                                <Text type='secondary'>Normalized:</Text>
+                                <Text>{result.scores?.detailed.normalizedScore.toFixed(2)}</Text>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </>
@@ -171,9 +231,8 @@ export default function PronunciationResults() {
 
 // Separate component for the detailed score analysis
 const DetailedScoreAnalysis: React.FC<{ result: TypingResult }> = ({ result }) => {
-  const { scoreInfo, coloredSegments } = processScoreResult(result);
+  const { scoreInfo } = processScoreResult(result);
 
-  console.log(coloredSegments);
   return (
     <div className='space-y-4'>
       {/* Basic Information */}
@@ -204,30 +263,89 @@ const DetailedScoreAnalysis: React.FC<{ result: TypingResult }> = ({ result }) =
         >
           Score Analysis
         </Title>
-        <div className='grid grid-cols-2 gap-4'>
-          <div>
-            <Title
-              level={4}
-              className='mb-2'
-            >
-              Score Details
-            </Title>
-            <div className='space-y-1'>
-              <Text>Normalized Score: {scoreInfo.normalizedScore.toFixed(2)}</Text>
-              <br />
-              <Text>Confidence: {scoreInfo.confidence}</Text>
-              <br />
-              <Text>Category: {scoreInfo.category}</Text>
+        <div className='grid grid-cols-2 gap-6'>
+          <div className='space-y-4'>
+            <div>
+              <Title
+                level={4}
+                className='mb-2'
+              >
+                Standard Scoring
+              </Title>
+              <div className='space-y-2'>
+                <div className='flex justify-between items-center'>
+                  <Text strong>Calculated Score:</Text>
+                  <Text>{scoreInfo.standard.calculatedScore.toFixed(3)}</Text>
+                </div>
+                <div className='flex justify-between items-center'>
+                  <Text strong>Normalized Score:</Text>
+                  <Text>{scoreInfo.standard.normalizedScore}</Text>
+                </div>
+                <div className='flex justify-between items-center'>
+                  <Text strong>Confidence:</Text>
+                  <Text className='capitalize'>{scoreInfo.standard.confidence}</Text>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <Title
+                level={4}
+                className='mb-2'
+              >
+                Detailed Scoring
+              </Title>
+              <div className='space-y-2'>
+                <div className='flex justify-between items-center'>
+                  <Text strong>Calculated Score:</Text>
+                  <Text>{scoreInfo.detailed.calculatedScore.toFixed(3)}</Text>
+                </div>
+                <div className='flex justify-between items-center'>
+                  <Text strong>Normalized Score:</Text>
+                  <Text>{scoreInfo.detailed.normalizedScore}</Text>
+                </div>
+                <div className='flex justify-between items-center'>
+                  <Text strong>Contents Score:</Text>
+                  <Text>{scoreInfo.detailed.contentsScore.toFixed(3)}</Text>
+                </div>
+                <div className='flex justify-between items-center'>
+                  <Text strong>Pronunciation Score:</Text>
+                  <Text>{scoreInfo.detailed.pronunciationScore.toFixed(3)}</Text>
+                </div>
+                <div className='flex justify-between items-center'>
+                  <Text strong>Fluency Score:</Text>
+                  <Text>{scoreInfo.detailed.fluencyScore.toFixed(3)}</Text>
+                </div>
+                <div className='flex justify-between items-center'>
+                  <Text strong>Confidence:</Text>
+                  <Text className='capitalize'>{scoreInfo.detailed.confidence}</Text>
+                </div>
+              </div>
             </div>
           </div>
+
           <div>
             <Title
               level={4}
               className='mb-2'
             >
-              Original Text
+              Recording Information
             </Title>
-            <Text>{result.assessment.sentence.text}</Text>
+            <div className='space-y-2'>
+              <div>
+                <Text strong>Category:</Text>
+                <Text className='ml-2'>{scoreInfo.category}</Text>
+              </div>
+              <div>
+                <Title
+                  level={5}
+                  className='mt-4 mb-2'
+                >
+                  Original Text
+                </Title>
+                <Text>{result.assessment.sentence.text}</Text>
+              </div>
+            </div>
           </div>
         </div>
       </div>

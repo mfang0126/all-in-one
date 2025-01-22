@@ -5,6 +5,22 @@ export interface Result {
   createdAt: string;
   text: string;
   timestamp: string;
-  score?: number;
+  scores?: {
+    standard: {
+      calculatedScore: number;
+      type: 'standard';
+      normalizedScore: number;
+      confidence: 'low' | 'medium' | 'high';
+    };
+    detailed: {
+      normalizedScore: number;
+      confidence: 'low' | 'medium' | 'high';
+      contentsScore: number;
+      calculatedScore: number;
+      type: 'detailed';
+      fluencyScore: number;
+      pronunciationScore: number;
+    };
+  };
   status?: 'pending' | 'completed';
 }
