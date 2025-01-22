@@ -21,7 +21,8 @@ export type ScoreSchema = StandardScore | DetailedScore;
 export interface TypingResult {
   uid: string;
   scores: {
-    [key: string]: ScoreSchema;
+    standard: StandardScore;
+    detailed: DetailedScore;
   };
   category: string;
   timestamp: string;
