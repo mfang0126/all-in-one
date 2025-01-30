@@ -289,26 +289,41 @@ const DetailedScoreAnalysis: React.FC<{ result: TypingResult }> = ({ result }) =
                 Calculated Scoring
               </Title>
               <div className='space-y-2'>
-                {scoreInfo.calculatedScore.map((score, index) => (
-                  <div key={index}>
-                    <div className='flex justify-between items-center'>
-                      <Text strong>Type:</Text>
-                      <Text>{score.type.toUpperCase()}</Text>
+                {scoreInfo.calculatedScore.map((score, index) => {
+                  console.log('Score at index', index, ':', score);
+                  return (
+                    <div key={index}>
+                      <div className='flex justify-between items-center'>
+                        <Text strong>Type:</Text>
+                        <Text>{score.type.toUpperCase()}</Text>
+                      </div>
+                      <div className='flex justify-between items-center'>
+                        <Text strong>Calculated Score:</Text>
+                        <Text>{score.calculated?.toFixed(3)}</Text>
+                      </div>
+                      <div className='flex justify-between items-center'>
+                        <Text strong>Confidence:</Text>
+                        <Text className='capitalize'>{score.confidence}</Text>
+                      </div>
+                      <div className='flex justify-between items-center'>
+                        <Text strong>Normalized Score:</Text>
+                        <Text>{score.normalized?.toFixed(3)}</Text>
+                      </div>
+                      <div className='flex justify-between items-center'>
+                        <Text strong>Content Score:</Text>
+                        <Text>{score.content?.toFixed(3)}</Text>
+                      </div>
+                      <div className='flex justify-between items-center'>
+                        <Text strong>Pronunciation Score:</Text>
+                        <Text>{score.pronunciation?.toFixed(3)}</Text>
+                      </div>
+                      <div className='flex justify-between items-center'>
+                        <Text strong>Fluency Score:</Text>
+                        <Text>{score.fluency?.toFixed(3)}</Text>
+                      </div>
                     </div>
-                    <div className='flex justify-between items-center'>
-                      <Text strong>Calculated Score:</Text>
-                      <Text>{score.calculated?.toFixed(3)}</Text>
-                    </div>
-                    <div className='flex justify-between items-center'>
-                      <Text strong>Confidence:</Text>
-                      <Text className='capitalize'>{score.confidence}</Text>
-                    </div>
-                    <div className='flex justify-between items-center'>
-                      <Text strong>Normalized Score:</Text>
-                      <Text>{score.normalized?.toFixed(3)}</Text>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
