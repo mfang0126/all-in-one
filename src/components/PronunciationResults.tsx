@@ -309,18 +309,6 @@ const DetailedScoreAnalysis: React.FC<{ result: TypingResult }> = ({ result }) =
                         <Text strong>Normalized Score:</Text>
                         <Text>{score.normalized?.toFixed(3)}</Text>
                       </div>
-                      <div className='flex justify-between items-center'>
-                        <Text strong>Content Score:</Text>
-                        <Text>{score.content?.toFixed(3)}</Text>
-                      </div>
-                      <div className='flex justify-between items-center'>
-                        <Text strong>Pronunciation Score:</Text>
-                        <Text>{score.pronunciation?.toFixed(3)}</Text>
-                      </div>
-                      <div className='flex justify-between items-center'>
-                        <Text strong>Fluency Score:</Text>
-                        <Text>{score.fluency?.toFixed(3)}</Text>
-                      </div>
                     </div>
                   );
                 })}
