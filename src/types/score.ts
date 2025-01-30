@@ -1,29 +1,50 @@
 export type ScoreQuality = 'excellent' | 'good' | 'poor';
+
+export type Confidence = 'low' | 'medium' | 'high';
+
+export enum ScoreType {
+  Basic = 'basic',
+  Advanced = 'advanced'
+}
+
 export interface BaseScore {
-  confidence: string;
-  calculatedScore: number;
-  normalizedScore: number;
+  confidence: Confidence;
+  calculated: number;
+  normalized: number;
 }
 
-export interface StandardScore extends BaseScore {
-  type: 'standard';
+export interface BasicScore extends BaseScore {
+  type: ScoreType.Basic;
 }
 
-export interface DetailedScore extends BaseScore {
-  type: 'detailed';
-  contentsScore: number;
-  pronunciationScore: number;
-  fluencyScore: number;
+export interface AdvancedScore extends BaseScore {
+  type: ScoreType.Advanced;
+  contents: number;
+  pronunciation: number;
+  fluency: number;
 }
 
-export type ScoreSchema = StandardScore | DetailedScore;
+export type ScoreSchema = BasicScore | AdvancedScore;
 
 export interface TypingResult {
   uid: string;
-  scores: {
-    standard: StandardScore;
-    detailed: DetailedScore;
+  originalFilename: string;
+  score: {
+    standard: number;
+    accuracy: number;
+    fluency: number;
+    integrity: number;
+    total: number;
   };
+  calculatedScore: Array<{
+    type: ScoreType;
+    calculated: number;
+    normalized: number;
+    confidence: Confidence;
+    content?: number;
+    pronunciation?: number;
+    fluency?: number;
+  }>;
   category: string;
   timestamp: string;
   assessment: {
