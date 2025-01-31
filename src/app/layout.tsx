@@ -33,6 +33,11 @@ const items = [
     key: '/pronunciation',
     icon: <AudioOutlined />,
     label: <Link href='/pronunciation'>Pronunciation</Link>
+  },
+  {
+    key: '/docs/pronunciation',
+    icon: <AudioOutlined />,
+    label: <Link href='/docs/pronunciation'>API Docs</Link>
   }
 ];
 

@@ -11,6 +11,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
     "@google-cloud/speech": "^6.7.0",
+    "@types/swagger-ui-react": "^5.18.0",
     "antd": "^5.22.7",
     "assemblyai": "^4.8.0",
     "autoprefixer": "^10.4.20",
@@ -19,7 +20,8 @@
     "openai": "^4.77.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-dropzone": "^14.3.5"
+    "react-dropzone": "^14.3.5",
+    "swagger-ui-react": "^5.18.3"
   },
   "devDependencies": {
     "typescript": "^5",

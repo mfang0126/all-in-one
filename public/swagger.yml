@@ -1,0 +1,252 @@
+openapi: 3.0.0
+info:
+  title: Pronunciation API
+  version: 1.0.0
+  description: API documentation for pronunciation assessment service
+
+paths:
+  /api/read-aloud/chapter:
+    post:
+      summary: Submit audio for pronunciation assessment
+      description: Upload an audio file with spoken text for pronunciation assessment
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Audio file to be assessed
+                text:
+                  type: string
+                  description: Text that was read in the audio
+      responses:
+        '200':
+          description: Successfully submitted audio for assessment
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Success message
+                  result:
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                        description: Unique identifier for the assessment
+                      fileName:
+                        type: string
+                        description: Name of the uploaded audio file
+                      messageId:
+                        type: string
+                        description: Unique message identifier
+                      timestamp:
+                        type: string
+                        format: date-time
+                        description: Timestamp of when the assessment was submitted
+        '400':
+          description: Bad request
+        '500':
+          description: Internal server error
+
+  /api/results:
+    post:
+      summary: Get all assessment results
+      description: Retrieve all pronunciation assessment results
+      responses:
+        '200':
+          description: Successfully retrieved results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        status:
+                          type: string
+                          enum: [completed, failed, processing]
+                        timestamp:
+                          type: string
+                          format: date-time
+                        audioPath:
+                          type: string
+                        category:
+                          type: string
+                        createdAt:
+                          type: string
+                          format: date-time
+                        originalFilename:
+                          type: string
+                        score:
+                          type: object
+                          properties:
+                            standard:
+                              type: number
+                            accuracy:
+                              type: number
+                            fluency:
+                              type: number
+                            integrity:
+                              type: number
+                            total:
+                              type: number
+                        reportPath:
+                          type: string
+                        calculatedScore:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              calculated:
+                                type: number
+                              normalized:
+                                type: number
+                              confidence:
+                                type: string
+                              content:
+                                type: number
+                              pronunciation:
+                                type: number
+                              fluency:
+                                type: number
+
+  /api/results/{uid}:
+    post:
+      summary: Get detailed result by ID
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the assessment
+      responses:
+        '200':
+          description: Successfully retrieved detailed result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  audioPath:
+                    type: string
+                  status:
+                    type: string
+                    enum: [completed, failed, processing]
+                  timestamp:
+                    type: string
+                    format: date-time
+                  category:
+                    type: string
+                  createdAt:
+                    type: string
+                    format: date-time
+                  originalFilename:
+                    type: string
+                  score:
+                    type: object
+                    properties:
+                      standard:
+                        type: number
+                      accuracy:
+                        type: number
+                      fluency:
+                        type: number
+                      integrity:
+                        type: number
+                      total:
+                        type: number
+                  text:
+                    type: string
+                  reportPath:
+                    type: string
+                  uid:
+                    type: string
+                  assessment:
+                    type: object
+                    properties:
+                      sentence:
+                        type: object
+                        properties:
+                          text:
+                            type: string
+                          score:
+                            type: number
+                          start:
+                            type: number
+                          end:
+                            type: number
+                          words:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                text:
+                                  type: string
+                                score:
+                                  type: number
+                                start:
+                                  type: number
+                                end:
+                                  type: number
+                                syllables:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      text:
+                                        type: string
+                                      score:
+                                        type: number
+                                      start:
+                                        type: number
+                                      end:
+                                        type: number
+                                      phones:
+                                        type: array
+                                        items:
+                                          type: object
+                                          properties:
+                                            text:
+                                              type: string
+                                            phoneme:
+                                              type: string
+                                            score:
+                                              type: number
+                                            start:
+                                              type: number
+                                            end:
+                                              type: number
+                  calculatedScore:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                        calculated:
+                          type: number
+                        normalized:
+                          type: number
+                        confidence:
+                          type: string
+                        content:
+                          type: number
+                        pronunciation:
+                          type: number
+                        fluency:
+                          type: number
