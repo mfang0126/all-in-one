@@ -12,9 +12,16 @@ interface PronunciationResultsProps {
   currentResult: TypingResult | null;
   loading: boolean;
   loadingDetails: boolean;
+  onResultClick: (uid: string) => void;
 }
 
-export default function PronunciationResults({ results, currentResult, loading, loadingDetails }: PronunciationResultsProps) {
+export default function PronunciationResults({
+  results,
+  currentResult,
+  loading,
+  loadingDetails,
+  onResultClick
+}: PronunciationResultsProps) {
   if (loading) {
     return (
       <div className='flex items-center justify-center py-8'>
@@ -41,7 +48,7 @@ export default function PronunciationResults({ results, currentResult, loading, 
               <PronunciationResultItem
                 key={result.uid}
                 result={result}
-                onResultClick={(uid) => console.log(uid)}
+                onResultClick={onResultClick}
               />
             ))}
           </ul>

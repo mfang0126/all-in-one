@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { message } from 'antd';
-import { Result } from '@/types/result';
 import { TypingResult } from '@/types/score';
 import PronunciationForm from '@/components/PronunciationForm';
 import PronunciationResults from '@/components/PronunciationResults';
@@ -21,7 +20,7 @@ export default function PronunciationPage() {
   const [checkingResult, setCheckingResult] = useState(false);
 
   // Results states
-  const [results, setResults] = useState<Result[]>([]);
+  const [results, setResults] = useState<TypingResult[]>([]);
   const [loadingResults, setLoadingResults] = useState(true);
   const [currentResult, setCurrentResult] = useState<TypingResult | null>(null);
   const [loadingDetails, setLoadingDetails] = useState(false);
@@ -38,7 +37,9 @@ export default function PronunciationPage() {
           body: JSON.stringify({ type: 'all' })
         });
         const { results: fetchedResults } = await response.json();
-        setResults(fetchedResults.sort((a: Result, b: Result) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()));
+        setResults(
+          fetchedResults.sort((a: TypingResult, b: TypingResult) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+        );
       } catch (error) {
         console.error('Failed to fetch results:', error);
       } finally {
@@ -67,7 +68,7 @@ export default function PronunciationPage() {
         });
 
         const { results } = await response.json();
-        const submittedResult = results.find((r: any) => r.uid === submittedUid);
+        const submittedResult = results.find((r: TypingResult) => r.uid === submittedUid);
 
         if (submittedResult) {
           if (submittedResult.status === 'completed') {
