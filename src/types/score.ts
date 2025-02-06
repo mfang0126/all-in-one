@@ -26,25 +26,29 @@ export interface AdvancedScore extends BaseScore {
 
 export type ScoreSchema = BasicScore | AdvancedScore;
 
+export interface Score {
+  standard: number;
+  accuracy: number;
+  fluency: number;
+  integrity: number;
+  total: number;
+}
+
+export interface CalculatedScore {
+  type: ScoreType;
+  calculated: number;
+  confidence: Confidence;
+  content?: number;
+  pronunciation?: number;
+  fluency?: number;
+}
+
 export interface TypingResult {
   uid: string;
+  text: string;
+  status: 'pending' | 'completed' | 'failed';
   originalFilename: string;
-  score: {
-    standard: number;
-    accuracy: number;
-    fluency: number;
-    integrity: number;
-    total: number;
-  };
-  calculatedScore: Array<{
-    type: ScoreType;
-    calculated: number;
-    normalized: number;
-    confidence: Confidence;
-    content?: number;
-    pronunciation?: number;
-    fluency?: number;
-  }>;
+  calculatedScores: Array<CalculatedScore>;
   category: string;
   timestamp: string;
   assessment: {

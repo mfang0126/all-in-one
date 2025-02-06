@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import './globals.css';
 import { AntdProvider } from './providers';
+import { useState } from 'react';
 
 const { Content, Footer, Sider } = Layout;
 
@@ -36,13 +37,14 @@ const items = [
   },
   {
     key: '/docs/pronunciation',
-    icon: <AudioOutlined />,
+    icon: <FileTextOutlined />,
     label: <Link href='/docs/pronunciation'>API Docs</Link>
   }
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <html lang='en'>
@@ -53,11 +55,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AntdProvider>
           <Layout className='min-h-screen '>
             <Sider
+              collapsible
               breakpoint='lg'
-              collapsedWidth='0'
+              collapsed={collapsed}
+              onCollapse={(value) => setCollapsed(value)}
             >
               <div className='h-8 mx-4 my-4 bg-white/20 flex items-center justify-center text-white text-base font-bold mt-5'>
-                Transcription AI
+                <span className='hidden lg:inline'>Transcription AI</span>
+                <span className='lg:hidden'>LT</span>
               </div>
               <Menu
                 theme='dark'
@@ -68,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Sider>
             <Layout>
               <Content style={{ margin: '24px 16px 0' }}>{children}</Content>
-              <Footer style={{ textAlign: 'center' }}>Ming Fang ©{new Date().getFullYear()}</Footer>
+              <Footer style={{ textAlign: 'center' }}>Lighttune ©{new Date().getFullYear()}</Footer>
             </Layout>
           </Layout>
         </AntdProvider>
