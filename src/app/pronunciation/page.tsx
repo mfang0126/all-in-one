@@ -5,7 +5,7 @@ import { message } from 'antd';
 import { TypingResult } from '@/types/score';
 import PronunciationForm from '@/components/PronunciationForm';
 import PronunciationResults from '@/components/PronunciationResults';
-import { ContentBox } from '@/components/ContentBox';
+import { ContentBox, ContentTitle } from '@/components/ContentBox';
 
 export default function PronunciationPage() {
   const [messageApi, contextHolder] = message.useMessage();
@@ -185,6 +185,7 @@ export default function PronunciationPage() {
           onSubmit={handleSubmit}
         />
       </ContentBox>
+      <ContentTitle title='All assessments' />
       <PronunciationResults
         results={results}
         currentResult={currentResult}

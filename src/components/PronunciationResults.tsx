@@ -31,29 +31,20 @@ export default function PronunciationResults({
   }
 
   return (
-    <div className='mt-4 space-y-4'>
-      {/* Results List Section */}
-      <div className='p-4 border rounded-lg bg-white shadow'>
-        <Title
-          level={3}
-          className='mb-4'
-        >
-          All Assessments
-        </Title>
-        {results.length === 0 ? (
-          <Text type='secondary'>No assessments found.</Text>
-        ) : (
-          <ul className='space-y-4'>
-            {results.map((result) => (
-              <PronunciationResultItem
-                key={result.uid}
-                result={result}
-                onResultClick={onResultClick}
-              />
-            ))}
-          </ul>
-        )}
-      </div>
+    <>
+      {results.length === 0 ? (
+        <Text type='secondary'>No assessments found.</Text>
+      ) : (
+        <ul className='space-y-4'>
+          {results.map((result) => (
+            <PronunciationResultItem
+              key={result.uid}
+              result={result}
+              onResultClick={onResultClick}
+            />
+          ))}
+        </ul>
+      )}
 
       {/* Selected Result Analysis */}
       {loadingDetails ? (
@@ -65,6 +56,6 @@ export default function PronunciationResults({
       ) : (
         currentResult && <DetailedScoreAnalysis result={currentResult} />
       )}
-    </div>
+    </>
   );
 }
