@@ -34,90 +34,82 @@ export function PronunciationResultItem({ result, onResultClick }: Pronunciation
         <Text type='secondary'>{dayjs(result.timestamp).format('DD/MM/YYYY, HH:mm:ss')}</Text>
       </div>
 
-      {/* Basic Score Section */}
-      <Card className='mb-4'>
-        <div className='grid grid-cols-2 gap-4'>
-          <div>
-            <Title
-              level={2}
-              style={{ marginBottom: '4px' }}
-            >
-              {result.calculatedScores[0]?.calculated.toFixed(2)}
-            </Title>
-            <Text type='secondary'>Basic Score</Text>
-          </div>
-          <div>
-            <Title
-              level={3}
-              style={{ marginBottom: '4px' }}
-            >
-              {result.calculatedScores[0]?.confidence || '-'}
-            </Title>
-            <Text type='secondary'>Confidence</Text>
-          </div>
-        </div>
-      </Card>
-
-      {/* Advanced Score Section */}
-      <Card className='mb-4'>
-        <div className='grid grid-cols-2 md:grid-cols-5 gap-4'>
-          <div className='col-span-2 md:col-span-1'>
-            <Title
-              level={2}
-              style={{ marginBottom: '4px' }}
-            >
-              {result.calculatedScores[1]?.calculated.toFixed(2)}
-            </Title>
-            <Text type='secondary'>Advanced Score</Text>
-          </div>
-          <div>
-            <Title
-              level={3}
-              style={{ marginBottom: '4px' }}
-            >
-              {result.calculatedScores[1]?.content?.toFixed(2) || '-'}
-            </Title>
-            <Text type='secondary'>Content</Text>
-          </div>
-          <div>
-            <Title
-              level={3}
-              style={{ marginBottom: '4px' }}
-            >
-              {result.calculatedScores[1]?.pronunciation?.toFixed(2) || '-'}
-            </Title>
-            <Text type='secondary'>Pronunciation</Text>
-          </div>
-          <div>
-            <Title
-              level={3}
-              style={{ marginBottom: '4px' }}
-            >
-              {result.calculatedScores[1]?.fluency?.toFixed(2) || '-'}
-            </Title>
-            <Text type='secondary'>Fluency</Text>
-          </div>
-          <div>
-            <Title
-              level={3}
-              style={{ marginBottom: '4px' }}
-            >
-              {result.calculatedScores[1]?.confidence || '-'}
-            </Title>
-            <Text type='secondary'>Confidence</Text>
+      {/* Score Sections */}
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+        {/* Left Column */}
+        <div>
+          <Title
+            level={4}
+            className='mb-2'
+          >
+            Calculated Scores
+          </Title>
+          <div className='space-y-4'>
+            {result.calculatedScores.map((score, index) => (
+              <div
+                key={index}
+                className='space-y-1'
+              >
+                <div className='flex justify-between items-center'>
+                  <Text strong>Type:</Text>
+                  <Text className='capitalize'>{score.type}</Text>
+                </div>
+                <div className='flex justify-between items-center'>
+                  <Text strong>Score:</Text>
+                  <Text>{score.calculated.toFixed(3)}</Text>
+                </div>
+                {score.content && (
+                  <div className='flex justify-between items-center'>
+                    <Text strong>Content:</Text>
+                    <Text>{score.content.toFixed(3)}</Text>
+                  </div>
+                )}
+                {score.pronunciation && (
+                  <div className='flex justify-between items-center'>
+                    <Text strong>Pronunciation:</Text>
+                    <Text>{score.pronunciation.toFixed(3)}</Text>
+                  </div>
+                )}
+                {score.fluency && (
+                  <div className='flex justify-between items-center'>
+                    <Text strong>Fluency:</Text>
+                    <Text>{score.fluency.toFixed(3)}</Text>
+                  </div>
+                )}
+                {index !== result.calculatedScores.length - 1 && <div className='border-b my-2' />}
+              </div>
+            ))}
           </div>
         </div>
-      </Card>
 
-      {/* Text Section */}
-      <div>
-        <Title
-          level={5}
-          style={{ marginBottom: '8px' }}
-        >
-          Original Text
-        </Title>
-        <Text type='secondary'>{result.text}</Text>
+        {/* Right Column */}
+        <div>
+          <Title
+            level={4}
+            className='mb-2'
+          >
+            Recording Information
+          </Title>
+          <div className='space-y-2'>
+            <div className='flex justify-between items-center'>
+              <Text strong>Original Filename:</Text>
+              <Text className='ml-2 truncate'>{result.originalFilename}</Text>
+            </div>
+            <div className='flex justify-between items-center'>
+              <Text strong>Category:</Text>
+              <Text className='ml-2'>
+                {result.category
+                  .split('_')
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(' ')}
+              </Text>
+            </div>
+            <div className='flex flex-col'>
+              <Text strong>Original Text:</Text>
+              <Text className='mt-1'>{result.text}</Text>
+            </div>
+          </div>
+        </div>
       </div>
     </Card>
   );

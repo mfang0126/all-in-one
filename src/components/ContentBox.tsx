@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const ContentTitle = ({ title }: { title: string }) => {
-  return <div className='text-2xl font-bold mb-4'>{title}</div>;
+export const ContentTitle = ({ title, className }: { title: string; className?: string }) => {
+  return <div className={`text-2xl font-bold mb-4 ${className}`}>{title}</div>;
 };
 
 export const ContentBox = ({ children, title }: { children: React.ReactNode; title: string }) => {

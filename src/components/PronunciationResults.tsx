@@ -4,8 +4,9 @@ import { TypingResult } from '@/types/score';
 import { Typography } from 'antd';
 import { DetailedScoreAnalysis } from './DetailedScoreAnalysis';
 import { PronunciationResultItem } from './PronunciationResultItem';
+import { ContentTitle } from './ContentBox';
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 interface PronunciationResultsProps {
   results: TypingResult[];
@@ -46,6 +47,10 @@ export default function PronunciationResults({
         </ul>
       )}
 
+      <ContentTitle
+        title='Selected Result Analysis'
+        className='my-8'
+      />
       {/* Selected Result Analysis */}
       {loadingDetails ? (
         <div className='bg-white p-4 rounded-lg shadow'>

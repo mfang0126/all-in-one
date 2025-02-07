@@ -27,7 +27,7 @@ export const getScoreColor = (score: number | null): string => {
 };
 
 export const processScoreResult = (result: TypingResult) => {
-  const { score, calculatedScore, category, timestamp, assessment } = result;
+  const { calculatedScores, category, timestamp, assessment } = result;
   const { sentence } = assessment;
 
   const textSegments: ColoredTextSegment[] = [];
@@ -66,8 +66,7 @@ export const processScoreResult = (result: TypingResult) => {
 
   return {
     scoreInfo: {
-      score,
-      calculatedScore,
+      calculatedScores,
       category,
       timestamp
     },
