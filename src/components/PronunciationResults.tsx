@@ -31,6 +31,7 @@ export default function PronunciationResults({
     );
   }
 
+  console.log(currentResult);
   return (
     <>
       {results.length === 0 ? (
@@ -47,12 +48,8 @@ export default function PronunciationResults({
         </ul>
       )}
 
-      <ContentTitle
-        title='Selected Result Analysis'
-        className='my-8'
-      />
       {/* Selected Result Analysis */}
-      {loadingDetails ? (
+      {!!loadingDetails ? (
         <div className='bg-white p-4 rounded-lg shadow'>
           <div className='flex items-center justify-center py-8'>
             <div className='animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600'></div>

@@ -106,7 +106,6 @@ export default function PronunciationForm({
 
       {audioUrl && (
         <>
-          <Divider />
           <Title level={4}>Audio Preview</Title>
           <audio
             controls

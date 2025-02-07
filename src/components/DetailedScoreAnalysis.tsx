@@ -4,6 +4,7 @@ import { message, Typography } from 'antd';
 import { CalculatedScore, TypingResult } from '@/types/score';
 import { processScoreResult } from '@/utils/scoreProcessing';
 import ScoredText from './ScoredText';
+import { ContentTitle } from './ContentBox';
 
 const { Title, Text } = Typography;
 
@@ -25,6 +26,10 @@ export function DetailedScoreAnalysis({ result }: DetailedScoreAnalysisProps) {
 
   return (
     <div className='space-y-4'>
+      <ContentTitle
+        title='Selected Result Analysis'
+        className='my-8'
+      />
       {contextHolder}
       {/* Recording Details */}
       <div className='bg-white p-4 rounded-lg'>
