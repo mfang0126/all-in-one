@@ -197,5 +197,4 @@ export default function PronunciationPage() {
   );
 }
 
-const DEFAULT_TEXT =
-  "A community's urban forest is an extension of its pride and community spirit. Trees enhance community economic stability by attracting businesses and tourists as people tend to linger and shop longer along tree-lined streets. Apartments and offices in wooded areas rent more quickly and businesses leasing office spaces in developments with trees reported higher productivity and fewer absences.";
+const DEFAULT_TEXT = '';
