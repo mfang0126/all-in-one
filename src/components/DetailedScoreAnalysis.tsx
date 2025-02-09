@@ -82,6 +82,10 @@ export function DetailedScoreAnalysis({ result }: DetailedScoreAnalysisProps) {
                     <Text className='capitalize'>{score.type}</Text>
                   </div>
                   <div className='flex justify-between items-center'>
+                    <Text strong>Confidence:</Text>
+                    <Text className='capitalize'>{score.confidence}</Text>
+                  </div>
+                  <div className='flex justify-between items-center'>
                     <Text strong>Score:</Text>
                     <Text>{score.calculated?.toFixed(3)}</Text>
                   </div>
