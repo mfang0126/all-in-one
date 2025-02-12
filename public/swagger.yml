@@ -89,22 +89,11 @@ paths:
                           format: date-time
                         originalFilename:
                           type: string
-                        score:
-                          type: object
-                          properties:
-                            standard:
-                              type: number
-                            accuracy:
-                              type: number
-                            fluency:
-                              type: number
-                            integrity:
-                              type: number
-                            total:
-                              type: number
+                        text:
+                          type: string
                         reportPath:
                           type: string
-                        calculatedScore:
+                        calculatedScores:
                           type: array
                           items:
                             type: object
@@ -112,8 +101,6 @@ paths:
                               type:
                                 type: string
                               calculated:
-                                type: number
-                              normalized:
                                 type: number
                               confidence:
                                 type: string
@@ -157,19 +144,6 @@ paths:
                     format: date-time
                   originalFilename:
                     type: string
-                  score:
-                    type: object
-                    properties:
-                      standard:
-                        type: number
-                      accuracy:
-                        type: number
-                      fluency:
-                        type: number
-                      integrity:
-                        type: number
-                      total:
-                        type: number
                   text:
                     type: string
                   reportPath:
@@ -231,7 +205,7 @@ paths:
                                               type: number
                                             end:
                                               type: number
-                  calculatedScore:
+                  calculatedScores:
                     type: array
                     items:
                       type: object
@@ -250,3 +224,5 @@ paths:
                           type: number
                         fluency:
                           type: number
+                  timestamp:
+                    type: number

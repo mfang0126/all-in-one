@@ -6,6 +6,15 @@ import { TypingResult } from '@/types/score';
 import PronunciationForm from '@/components/PronunciationForm';
 import PronunciationResults from '@/components/PronunciationResults';
 import { ContentBox, ContentTitle } from '@/components/ContentBox';
+import { post, postFormData } from '@/services/web';
+
+interface ResultsRequest {
+  type: 'all';
+}
+
+interface ResultsResponse {
+  results: TypingResult[];
+}
 
 export default function PronunciationPage() {
   const [messageApi, contextHolder] = message.useMessage();
@@ -29,14 +38,7 @@ export default function PronunciationPage() {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const response = await fetch('/api/results', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${process.env.PTE_API_KEY}`
-          },
-          body: JSON.stringify({ type: 'all' })
-        });
-        const { results: fetchedResults } = await response.json();
+        const { results: fetchedResults } = await post<ResultsResponse, ResultsRequest>('/results', { type: 'all' });
         setResults(
           fetchedResults.sort((a: TypingResult, b: TypingResult) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
         );
@@ -59,15 +61,7 @@ export default function PronunciationPage() {
 
       try {
         setCheckingResult(true);
-        const response = await fetch('/api/results', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${process.env.PTE_API_KEY}`
-          },
-          body: JSON.stringify({ type: 'all' })
-        });
-
-        const { results } = await response.json();
+        const { results } = await post<ResultsResponse, ResultsRequest>('/results', { type: 'all' });
         const submittedResult = results.find((r: TypingResult) => r.uid === submittedUid);
 
         if (submittedResult) {
@@ -105,20 +99,7 @@ export default function PronunciationPage() {
     setError(null);
 
     try {
-      const response = await fetch('/api/read-aloud/chapter', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${process.env.PTE_API_KEY}`
-        },
-        body: formData
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ message: 'Something went wrong' }));
-        throw new Error(errorData.message || 'Failed to assess pronunciation. Please try again.');
-      }
-
-      const data = await response.json();
+      const data = await postFormData<{ result: { uid: string } }>('/read-aloud/chapter', formData);
 
       // Reset states
       setFile(null);
@@ -143,14 +124,11 @@ export default function PronunciationPage() {
   const handleResultClick = async (uid: string) => {
     setLoadingDetails(true);
     try {
-      const response = await fetch(`/api/results/${uid}`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${process.env.PTE_API_KEY}`
-        },
-        body: JSON.stringify({ type: 'all' })
-      });
-      const result = (await response.json()) as TypingResult;
+      interface ResultDetailRequest {
+        type: 'all';
+      }
+
+      const result = await post<TypingResult, ResultDetailRequest>(`/results/${uid}`, { type: 'all' });
       setCurrentResult(result);
     } catch (error) {
       console.error('Failed to fetch result details:', error);
