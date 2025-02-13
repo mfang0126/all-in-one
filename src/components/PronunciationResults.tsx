@@ -4,7 +4,6 @@ import { TypingResult } from '@/types/score';
 import { Typography } from 'antd';
 import { DetailedScoreAnalysis } from './DetailedScoreAnalysis';
 import { PronunciationResultItem } from './PronunciationResultItem';
-import { ContentTitle } from './ContentBox';
 
 const { Text } = Typography;
 
