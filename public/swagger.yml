@@ -224,5 +224,3 @@ paths:
                           type: number
                         fluency:
                           type: number
-                  timestamp:
-                    type: number
