@@ -2,7 +2,28 @@ openapi: 3.0.0
 info:
   title: Pronunciation API
   version: 1.0.0
-  description: API documentation for pronunciation assessment service
+  description: |
+    API documentation for pronunciation assessment service
+
+    To use this API, you need to:
+    1. Click the "Authorize" button at the top
+    2. Enter your Bearer token in the format: `Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+    3. Click "Authorize" to save
+    4. You can now use the "Try it out" button on any endpoint
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        Enter your Bearer token for authentication.
+        Example: Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  schemas: {}
+
+security:
+  - BearerAuth: []
 
 paths:
   /api/read-aloud/chapter:
