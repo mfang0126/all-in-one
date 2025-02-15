@@ -5,6 +5,8 @@ info:
   description: |
     API documentation for pronunciation assessment service
 
+    `https://api.pteyyds.com/api`
+
     To use this API, you need to:
     1. Click the "Authorize" button at the top
     2. Enter your Bearer token in the format: `Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
