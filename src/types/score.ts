@@ -19,7 +19,7 @@ export interface BasicScore extends BaseScore {
 
 export interface AdvancedScore extends BaseScore {
   type: ScoreType.Advanced;
-  contents: number;
+  content: number;
   pronunciation: number;
   fluency: number;
 }

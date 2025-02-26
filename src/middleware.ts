@@ -1,10 +1,16 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { getToken } from 'next-auth/jwt';
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
+  const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
   const isLoginPage = request.nextUrl.pathname === '/login';
-  const isLoggedIn = request.cookies.get('isLoggedIn')?.value === 'true';
-  const userType = request.cookies.get('userType')?.value;
+
+  // Check if user has a valid token AND a valid user ID
+  const hasValidUserId = !!token?.user?.id;
+  const isLoggedIn = !!token && hasValidUserId;
+
+  const userType = token?.user?.type;
   const currentPath = request.nextUrl.pathname;
 
   // API user allowed paths
