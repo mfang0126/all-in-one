@@ -4,10 +4,10 @@ export const ContentTitle = ({ title, className }: { title: string; className?: 
   return <div className={`text-2xl font-bold mb-4 ${className}`}>{title}</div>;
 };
 
-export const ContentBox = ({ children, title }: { children: React.ReactNode; title: string }) => {
+export const ContentBox = ({ children, title }: { children: React.ReactNode; title?: string }) => {
   return (
     <div className='mb-6'>
-      <ContentTitle title={title} />
+      {title && <ContentTitle title={title} />}
       <div className='shadow-lg border border-gray-200 rounded-lg p-4  bg-white'>{children}</div>
     </div>
   );

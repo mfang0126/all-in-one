@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 
 interface LoginFormProps {
-  username: string;
+  email: string;
   password: string;
 }
 
@@ -21,16 +21,18 @@ export default function LoginForm() {
     try {
       // Use next-auth signIn method with Cognito provider
       const result = await signIn('cognito', {
-        username: values.username,
+        username: values.email,
         password: values.password,
-        redirect: false
+        redirect: false,
+        callbackUrl: '/'
       });
 
       if (result?.ok) {
         messageApi.success('Login successful.');
-        router.push('/');
+        router.push(result.url || '/');
       } else {
-        messageApi.error('Invalid username or password!');
+        messageApi.error(result?.error || 'Invalid email or password!');
+        console.error('Login error:', result);
       }
     } catch (error) {
       messageApi.error('Authentication failed');
@@ -47,12 +49,15 @@ export default function LoginForm() {
         name='login'
         layout='vertical'
         onFinish={handleSubmit}
-        autoComplete='off'
+        autoComplete='on'
       >
         <Form.Item
-          label='Username'
-          name='username'
-          rules={[{ required: true, message: 'Please input your username!' }]}
+          label='Email'
+          name='email'
+          rules={[
+            { required: true, message: 'Email is required' },
+            { type: 'email', message: 'Please enter a valid email address' }
+          ]}
         >
           <Input />
         </Form.Item>
@@ -60,7 +65,7 @@ export default function LoginForm() {
         <Form.Item
           label='Password'
           name='password'
-          rules={[{ required: true, message: 'Please input your password!' }]}
+          rules={[{ required: true, message: 'Password is required' }]}
         >
           <Input.Password />
         </Form.Item>

@@ -7,8 +7,18 @@ import { ContentBox } from '@/components/ContentBox';
 const LoginForm = dynamic(() => import('@/components/LoginForm'), {
   ssr: false,
   loading: () => (
-    <div className='flex justify-center items-center p-8'>
-      <div className='animate-pulse'>Loading login form...</div>
+    <div
+      className='flex justify-center items-center p-8'
+      role='status'
+      aria-label='Loading login form'
+    >
+      <div
+        className='animate-pulse'
+        aria-hidden='true'
+      >
+        Loading login form...
+      </div>
+      <div className='sr-only'>Please wait while the login form loads</div>
     </div>
   )
 });
@@ -17,7 +27,7 @@ export default function LoginPage() {
   return (
     <div className='min-h-screen flex items-center justify-center bg-gray-100'>
       <div className='w-full max-w-md'>
-        <ContentBox title='Login'>
+        <ContentBox>
           <LoginForm />
         </ContentBox>
       </div>

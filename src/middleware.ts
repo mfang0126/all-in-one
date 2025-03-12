@@ -1,43 +1,84 @@
+import { withAuth } from 'next-auth/middleware';
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-import { getToken } from 'next-auth/jwt';
 
-export async function middleware(request: NextRequest) {
-  const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
-  const isLoginPage = request.nextUrl.pathname === '/login';
+// Define protected routes and their access rules
+const protectedRoutes = {
+  // Routes that only admin users can access
+  adminRoutes: ['/admin', '/settings'],
+  // Routes that API users can access
+  apiUserRoutes: ['/docs/pronunciation', '/docs', '/pronunciation'],
+  // Routes that are public (no auth required)
+  publicRoutes: ['/login', '/api/auth/error']
+};
 
-  // Check if user has a valid token AND a valid user ID
-  const hasValidUserId = !!token?.user?.id;
-  const isLoggedIn = !!token && hasValidUserId;
+// NextAuth augments the Request type with nextauth property
+const middleware = withAuth(
+  function middleware(request) {
+    // const { token } = request.nextauth;
+    // const userType = token?.user?.type;
+    // const currentPath = request.nextUrl.pathname;
 
-  const userType = token?.user?.type;
-  const currentPath = request.nextUrl.pathname;
+    // // Handle redirects based on user type and current path
 
-  // API user allowed paths
-  const isApiAllowedPath =
-    currentPath === '/docs/pronunciation' || currentPath === '/docs' || currentPath === '/login' || currentPath === '/pronunciation';
+    // // 1. If user is on login page but already authenticated, redirect to appropriate home
+    // if (currentPath === '/login') {
+    //   const redirectUrl = new URL(userType === 'api' ? '/docs/pronunciation' : '/', request.url);
+    //   return NextResponse.redirect(redirectUrl);
+    // }
 
-  // If not logged in and not on login page, redirect to login
-  if (!isLoggedIn && !isLoginPage) {
-    const loginUrl = new URL('/login', request.url);
-    return NextResponse.redirect(loginUrl);
+    // // 2. If API user is trying to access admin-only routes, redirect to their allowed area
+    // if (userType === 'api' && !protectedRoutes.apiUserRoutes.some((route) => currentPath.startsWith(route))) {
+    //   const pronunciationUrl = new URL('/docs/pronunciation', request.url);
+    //   return NextResponse.redirect(pronunciationUrl);
+    // }
+
+    // 3. Allow the request to proceed
+    return NextResponse.next();
+  },
+  {
+    callbacks: {
+      authorized: ({ token, req }) => {
+        return true;
+
+        const path = req.nextUrl.pathname;
+
+        // Public routes are always accessible
+        if (protectedRoutes.publicRoutes.some((route) => path.startsWith(route))) {
+          return true;
+        }
+
+        // For protected routes, check if user has a valid token with ID
+        const hasValidUserId = !!token?.user?.id;
+
+        // If user is not authenticated, they can't access protected routes
+        if (!hasValidUserId) {
+          return false;
+        }
+
+        // Additional role-based authorization checks
+        const userType = token.user?.type;
+
+        // If trying to access admin routes, verify user is not an API user
+        if (protectedRoutes.adminRoutes.some((route) => path.startsWith(route))) {
+          return userType !== 'api';
+        }
+
+        // All other cases: user is authenticated and authorized
+        return true;
+      }
+    },
+    pages: {
+      signIn: '/login',
+      error: '/api/auth/error'
+    }
   }
-
-  // If logged in and on login page, redirect to appropriate page
-  if (isLoggedIn && isLoginPage) {
-    const redirectUrl = new URL(userType === 'api' ? '/docs/pronunciation' : '/', request.url);
-    return NextResponse.redirect(redirectUrl);
-  }
-
-  // If API user trying to access restricted paths, redirect to docs/pronunciation
-  if (isLoggedIn && userType === 'api' && !isApiAllowedPath) {
-    const pronunciationUrl = new URL('/docs/pronunciation', request.url);
-    return NextResponse.redirect(pronunciationUrl);
-  }
-
-  return NextResponse.next();
-}
+);
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|swagger.yml).*)']
+  matcher: [
+    // Match all paths except those that start with:
+    '/((?!api/auth|_next/static|_next/image|favicon.ico|swagger.yml).*)'
+  ]
 };
+
+export default middleware;
